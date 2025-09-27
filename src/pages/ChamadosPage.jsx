@@ -52,15 +52,6 @@ export default function ChamadosPage() {
       {/* Componente para o filtro */}
       <FiltroChamados estado={estado} onEstadoChange={handleFilterChange} />
 
-      {/* Componente "invisível" que lida com as atualizações em tempo real */}
-      <RealtimeChamados />
-
-      {/* Indicador de que uma nova busca está acontecendo em segundo plano */}
-      {isFetching && <small style={{ display: 'block', margin: '12px 0' }}>Atualizando lista...</small>}
-
-      {/* Componente que renderiza a lista de chamados */}
-      <ListaChamados items={items} />
-
       {/* Componente que renderiza a navegação da paginação */}
       <Paginacao
         page={page}
@@ -71,6 +62,15 @@ export default function ChamadosPage() {
         onPrev={() => setPage((p) => p - 1)}
         onNext={() => setPage((p) => p + 1)}
       />
+
+      {/* Componente "invisível" que lida com as atualizações em tempo real */}
+      <RealtimeChamados />
+
+      {/* Indicador de que uma nova busca está acontecendo em segundo plano */}
+      {isFetching && <small style={{ display: 'block', margin: '12px 0' }}>Atualizando lista...</small>}
+
+      {/* Componente que renderiza a lista de chamados */}
+      <ListaChamados items={items} />
     </main>
   );
 }

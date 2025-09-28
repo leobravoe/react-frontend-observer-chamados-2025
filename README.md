@@ -126,5 +126,3 @@ npm run preview
 *   **Licença**: MIT
 *   **Autor**: Leonardo Bravo Estácio
 
-**Fonte**: `package.json`
-

@@ -6,7 +6,6 @@ import { useChamadosPage } from '../hooks/useChamadosPage';
 import FiltroChamados from '../components/FiltroChamados';
 import ListaChamados from '../components/ListaChamados';
 import Paginacao from '../components/Paginacao';
-import RealtimeChamados from '../components/RealtimeChamados';
 
 const PAGE_SIZE = 10;
 
@@ -63,14 +62,11 @@ export default function ChamadosPage() {
         onNext={() => setPage((p) => p + 1)}
       />
 
-      {/* Componente "invisível" que lida com as atualizações em tempo real */}
-      <RealtimeChamados />
+      {/* Componente que renderiza a lista de chamados */}
+      <ListaChamados items={items} />
 
       {/* Indicador de que uma nova busca está acontecendo em segundo plano */}
       {isFetching && <small style={{ display: 'block', margin: '12px 0' }}>Atualizando lista...</small>}
-
-      {/* Componente que renderiza a lista de chamados */}
-      <ListaChamados items={items} />
     </main>
   );
 }
